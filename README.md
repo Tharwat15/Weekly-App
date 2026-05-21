@@ -1,19 +1,24 @@
-# weekly
+# Weekly Expense Tracker 📊
 
-A new Flutter project created with FlutLab - https://flutlab.io
+A highly responsive, cross-platform Flutter application engineered to monitor personal finance dynamics. The application features real-time weekly expenditure aggregation, responsive viewport configuration, adaptive UI rendering, and strict memory boundary lifecycle tracking.
 
-## Getting Started
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack & Architectural Framework
 
-- https://flutter.dev/docs/get-started/codelab
-- https://flutter.dev/docs/cookbook
+* **Framework:** Flutter & Dart SDK
+* **State Management:** Localized lifting-of-state via custom reactive hooks (`setState`)
+* **Formatting Engine:** `intl` package for structural localized string parsing and uniform date formatters
+* **Component Rendering:** Material Design combined with platform-aware adaptive elements
 
-For help getting started with Flutter, view our
-https://flutter.dev/docs, which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-## Getting Started: FlutLab - Flutter Online IDE
-
-- How to use FlutLab? Please, view our https://flutlab.io/docs
-- Join the discussion and conversation on https://flutlab.io/residents
+### Project Structural Topology
+```text
+lib/
+├── models/
+│   └── Transaction.dart      # Strongly typed blueprint for transactional data schemas
+├── widgets/
+│   ├── chart.dart            # Multi-iteration mapping matrix calculation engine for weekly data
+│   ├── chat_bar.dart         # Scaled structural interface for mathematical layout distribution
+│   ├── newtransaction.dart   # Interactive transactional input worksheet with data boundary validators
+│   └── transaction_list.dart # Virtualized item layout generator containing contextual entries
+└── main.dart                 # Application bootstrap configuration, orientation guards, & core design hooks
