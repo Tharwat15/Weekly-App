@@ -1,19 +1,17 @@
-## 💎 Featured Core Implementations
+## 💎 Key Features
 
-### 💸 Real-Time Expense Tracking & Aggregation
-Even within a lightweight data footprint, the application showcases robust data-handling architecture by managing financial lifecycles locally:
-* **Dynamic State Injection:** Users can instantly create, validate, and inject new transactions into the active viewport stream.
-* **Algorithmic ID Allocation:** Features a custom string-parsing routine (`createID`) that reads existing record states and automatically computes unique, non-colliding entity identifiers at runtime.
-* **Safe Eviction Data Flow:** Implements a declarative filtering pattern via `.removeWhere()` to cleanly purge transaction records from memory by their unique ID, instantly triggering a structural interface re-render.
+### 💸 Dynamic Expense Tracking
+* **Add & Track:** Users can instantly add new expenses with a title, cost, and custom date.
+* **Auto-ID Generation:** Features a smart helper function (`createID`) that automatically calculates a unique ID for every new transaction so data never conflicts.
+* **Easy Deletion:** Implements a clean delete function that instantly removes an expense from the list and updates the screen smoothly.
 
-### 📊 Trailing 7-Day Data Visualization (The Chart Engine)
-The core highlight of the application is a data aggregation system that dynamically charts weekly financial cycles:
-* **Time-Delta Filtering:** Uses complex data filtering with `DateTime.now().subtract(Duration(days: 7))` to isolate and extract only the expenditures incurred over the trailing seven days.
-* **Algorithmic Mapping Matrix:** Runs a multi-pass iteration loops to calculate the exact sum spent on each matching day of the week, mapping the index directly to localized day initials (e.g., "M", "T", "W").
-* **Proportional Scaling Graph:** Computes total combined weekly spending using the `.fold()` accumulator method, dividing daily individual spend limits against the global total to generate a dynamic, mathematically accurate `heightFactor` percentage for each bar.
+### 📊 Weekly Spending Chart
+* **7-Day Filter:** Automatically filters your expenses to only show what you spent over the last 7 days.
+* **Smart Math Calculation:** Uses the `.fold()` method to calculate your total weekly spending, then dynamically scales the height of each bar to show exactly what percentage of your budget went to each day.
+* **Zero-Spend Safeguard:** Built-in logic ensures that if you have zero spending, the app displays cleanly without crashing from a "divide by zero" mathematical error.
 
-### 📱 Responsive Viewport Engineering & Performance
-* **Adaptive Orientation Shifts:** Intercepts and scales layouts dynamically based on device position. Portrait execution optimizes data density (30% graph allocation / 70% list tracking), while Landscape mode transitions into an adaptive toggle system allowing users to smoothly switch between structural analytics and content streams.
-* **Keyboard Overflow Mitigation:** Wraps form viewports inside a reactive `SingleChildScrollView` paired with a dynamic `MediaQuery.of(context).viewInsets.bottom` padding layout. This actively prevents sudden virtual keyboard display actions from triggering system UI container layout crashes.
-* **Efficient Memory Boundaries:** Utilizes modular, decoupled presentation states alongside low-impact text controllers, ensuring smooth animations and low CPU overhead during data mutations.
-* 
+### 📱 Full Responsiveness & Device Support
+* **Portrait Mode:** Allocates 30% of the screen to the chart and 70% to the transaction list for standard vertical reading.
+* **Landscape Mode:** Automatically swaps the layout when you turn your phone sideways, adding a "Show Chart" toggle switch so the user can easily switch views.
+* **Anti-Keyboard Crash:** Uses responsive keyboard padding (`viewInsets.bottom`) so the phone's keyboard never overlaps or crashes the input form when typing.
+* **Performance Focused:** Uses a virtualized `ListView.builder` to render your items on-demand, keeping the application fast and lightweight.
