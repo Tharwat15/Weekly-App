@@ -1,24 +1,19 @@
-# Weekly Expense Tracker 📊
+## 💎 Featured Core Implementations
 
-A highly responsive, cross-platform Flutter application engineered to monitor personal finance dynamics. The application features real-time weekly expenditure aggregation, responsive viewport configuration, adaptive UI rendering, and strict memory boundary lifecycle tracking.
+### 💸 Real-Time Expense Tracking & Aggregation
+Even within a lightweight data footprint, the application showcases robust data-handling architecture by managing financial lifecycles locally:
+* **Dynamic State Injection:** Users can instantly create, validate, and inject new transactions into the active viewport stream.
+* **Algorithmic ID Allocation:** Features a custom string-parsing routine (`createID`) that reads existing record states and automatically computes unique, non-colliding entity identifiers at runtime.
+* **Safe Eviction Data Flow:** Implements a declarative filtering pattern via `.removeWhere()` to cleanly purge transaction records from memory by their unique ID, instantly triggering a structural interface re-render.
 
----
+### 📊 Trailing 7-Day Data Visualization (The Chart Engine)
+The core highlight of the application is a data aggregation system that dynamically charts weekly financial cycles:
+* **Time-Delta Filtering:** Uses complex data filtering with `DateTime.now().subtract(Duration(days: 7))` to isolate and extract only the expenditures incurred over the trailing seven days.
+* **Algorithmic Mapping Matrix:** Runs a multi-pass iteration loops to calculate the exact sum spent on each matching day of the week, mapping the index directly to localized day initials (e.g., "M", "T", "W").
+* **Proportional Scaling Graph:** Computes total combined weekly spending using the `.fold()` accumulator method, dividing daily individual spend limits against the global total to generate a dynamic, mathematically accurate `heightFactor` percentage for each bar.
 
-## 🛠️ Tech Stack & Architectural Framework
-
-* **Framework:** Flutter & Dart SDK
-* **State Management:** Localized lifting-of-state via custom reactive hooks (`setState`)
-* **Formatting Engine:** `intl` package for structural localized string parsing and uniform date formatters
-* **Component Rendering:** Material Design combined with platform-aware adaptive elements
-
-### Project Structural Topology
-```text
-lib/
-├── models/
-│   └── Transaction.dart      # Strongly typed blueprint for transactional data schemas
-├── widgets/
-│   ├── chart.dart            # Multi-iteration mapping matrix calculation engine for weekly data
-│   ├── chat_bar.dart         # Scaled structural interface for mathematical layout distribution
-│   ├── newtransaction.dart   # Interactive transactional input worksheet with data boundary validators
-│   └── transaction_list.dart # Virtualized item layout generator containing contextual entries
-└── main.dart                 # Application bootstrap configuration, orientation guards, & core design hooks
+### 📱 Responsive Viewport Engineering & Performance
+* **Adaptive Orientation Shifts:** Intercepts and scales layouts dynamically based on device position. Portrait execution optimizes data density (30% graph allocation / 70% list tracking), while Landscape mode transitions into an adaptive toggle system allowing users to smoothly switch between structural analytics and content streams.
+* **Keyboard Overflow Mitigation:** Wraps form viewports inside a reactive `SingleChildScrollView` paired with a dynamic `MediaQuery.of(context).viewInsets.bottom` padding layout. This actively prevents sudden virtual keyboard display actions from triggering system UI container layout crashes.
+* **Efficient Memory Boundaries:** Utilizes modular, decoupled presentation states alongside low-impact text controllers, ensuring smooth animations and low CPU overhead during data mutations.
+* 
